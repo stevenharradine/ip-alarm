@@ -9,12 +9,16 @@ function run () {
   getCurrentIp (CONFIG.DNS_SERVER, function (ip) {
     if (theIpHasChanged && theIpIsInTheBlacklist (ip)) {
       sendAlerts (ip, function () {
-        console.log ("Starting over")
-
-        setTimeout(run, CONFIG.TEST_INTERVAL)
+        waitThenStartOver ()
       })
+    } else {
+      waitThenStartOver ()
     }
   })
+}
+
+function waitThenStartOver () {
+  setTimeout(run, CONFIG.TEST_INTERVAL)
 }
 
 function sendAlerts (ip, callback) {
