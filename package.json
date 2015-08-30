@@ -1,5 +1,5 @@
 {
-  "name": "ip-alarm",
+  "name": "ip-watch",
   "description": "Detect IP changes and if the current IP is on a blacklist.",
   "version": "0.0.1",
   "private": true,
