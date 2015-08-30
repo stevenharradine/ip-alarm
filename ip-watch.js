@@ -7,7 +7,7 @@ run ()
 
 function run () {
   getCurrentIp (CONFIG.DNS_SERVER, function (ip) {
-    if (theIpHasChanged && ipIsInTheBlacklist (ip)) {
+    if (theIpHasChanged && theIpIsInTheBlacklist (ip)) {
       sendAlerts (ip, function () {
         console.log ("Starting over")
 
@@ -45,7 +45,7 @@ function sendAlerts (ip, callback) {
   })
 }
 
-function ipIsInTheBlacklist (ip) {
+function theIpIsInTheBlacklist (ip) {
   for (i in CONFIG.IP_BLACKLIST) {
     if (CONFIG.IP_BLACKLIST[i] == ip) {
       return true
