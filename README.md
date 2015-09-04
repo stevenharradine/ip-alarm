@@ -19,7 +19,6 @@ npm install
 | EMAIL_USER  | The user sending emails (provided by email provider)  |
 | EMAIL_PASSWORD  | The user email password (provided by email provider)  |
 | NOTIFY_EMAIL  | Who is getting notified when the alarm is triggered  |
-| TEST_INTERVAL  | How often to test the IP address in ms  |
 | IP_BLACKLIST  | List of IPs to notifiy if they are ever assigned  |
 
 ## Run
