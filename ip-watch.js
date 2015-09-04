@@ -3,23 +3,13 @@ var CONFIG     = require("./config"),
     http       = require("http"),
     old_ip     = ""
 
-run ()
-
-function run () {
-  getCurrentIp (CONFIG.DNS_SERVER, function (ip) {
-    if (theIpHasChanged && theIpIsInTheBlacklist (ip)) {
-      sendAlerts (ip, function () {
-        waitThenStartOver ()
-      })
-    } else {
-      waitThenStartOver ()
-    }
-  })
-}
-
-function waitThenStartOver () {
-  setTimeout(run, CONFIG.TEST_INTERVAL)
-}
+getCurrentIp (CONFIG.DNS_SERVER, function (ip) {
+  if (theIpHasChanged && theIpIsInTheBlacklist (ip)) {
+    sendAlerts (ip, function () {
+      console.log ("Done")
+    })
+  }
+})
 
 function sendAlerts (ip, callback) {
   var transporter = nodemailer.createTransport({
